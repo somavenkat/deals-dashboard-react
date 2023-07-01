@@ -10,7 +10,6 @@ import {
 import { useNavigate, useLocation, Link } from "react-router-dom";
 
 function CardView({ cardDetails }) {
-  // console.log("cardDetails", cardDetails);
   const {
     title,
     description,
@@ -27,11 +26,18 @@ function CardView({ cardDetails }) {
   const navigate = useNavigate();
   // const history = useHistory();
 
+  const deleteHandler = () => {
+    alert("Still in progress ::: Not yet implemented delete functionality");
+  };
+
   const editHandler = () => {
-    console.log("cardDetails", cardDetails);
     // navigate("/admin/add-product");
     navigate("/admin/add-product", {
-      state: cardDetails,
+      state: {
+        parentPage: "/admin/products",
+        currentPage: "Edit Product",
+        cardDetails,
+      },
       name: "Update Product",
     });
   };
@@ -43,7 +49,7 @@ function CardView({ cardDetails }) {
             variant="top"
             style={{
               width: "200px",
-              height: "200px",
+              height: "100px",
               objectFit: "scale-down",
               marginLeft: "20px",
             }}
@@ -59,8 +65,11 @@ function CardView({ cardDetails }) {
             </p>
             <CardTitle className="twoLineEllipsis">{title}</CardTitle>
             {/* <CardText className="twoLineEllipsis">{description}</CardText> */}
-            <Button variant="primary" onClick={editHandler}>
+            <Button color="success" size="sm" outline onClick={editHandler}>
               Edit
+            </Button>
+            <Button color="danger" size="sm" outline onClick={deleteHandler}>
+              Delete
             </Button>
           </CardBody>
         </Card>

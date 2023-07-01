@@ -1,8 +1,15 @@
 // api.jsj
 import axios from "axios";
 
+let currentUrl = window.location.href;
+console.log("currentUrl", currentUrl);
+if (currentUrl.includes("localhost")) {
+  currentUrl = "http://localhost:8080/";
+} else {
+  currentUrl = "https://deals-backend-api.onrender.com/";
+}
 const api = axios.create({
-  baseURL: "http://localhost:8080/",
+  baseURL: currentUrl,
 });
 
 const endPoints = {

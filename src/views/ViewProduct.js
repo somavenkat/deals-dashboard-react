@@ -22,7 +22,12 @@ const ViewProduct = () => {
     if (confirm("Are you sure you want to delete the item!")) {
       getDeleteProduct({ _id: id }).then((res) => {
         console.log("res", res);
-        if (res.statusText === "OK") {
+        if (
+          res.statusText === "Created" ||
+          res.status === 200 ||
+          res.status === 201 ||
+          res.statusText === "OK"
+        ) {
           setAllProducts(allProducts.filter((list) => list._id !== id));
         }
       });

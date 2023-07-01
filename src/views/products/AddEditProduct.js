@@ -65,14 +65,25 @@ const AddEditProduct = ({ pageTitle }) => {
   };
   const getProductHandler = (name) => {
     if (name === "Add Product") {
-      createProductService(productList).then((data) => {
-        if (data.statusText === "Created") {
+      createProductService(productList).then((res) => {
+        console.log("data", res);
+        if (
+          res.statusText === "Created" ||
+          res.status === 200 ||
+          res.status === 201 ||
+          res.statusText === "OK"
+        ) {
           navigate("/admin/products");
         }
       });
     } else {
-      updateProductService({ ...productList, _id: _id }).then((data) => {
-        if (data.statusText === "OK") {
+      updateProductService({ ...productList, _id: _id }).then((res) => {
+        if (
+          res.statusText === "Created" ||
+          res.status === 200 ||
+          res.status === 201 ||
+          res.statusText === "OK"
+        ) {
           navigate("/admin/products");
         }
       });

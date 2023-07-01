@@ -1,15 +1,8 @@
-import {
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardText,
-  Button,
-  Col,
-} from "reactstrap";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { Card, CardImg, CardBody, CardTitle, Button, Col } from "reactstrap";
+import { useNavigate, Link } from "react-router-dom";
+import { getDeleteProduct } from "../../services/services";
 
-function CardView({ cardDetails }) {
+function CardView({ cardDetails, deleteHandler }) {
   const {
     title,
     description,
@@ -25,10 +18,6 @@ function CardView({ cardDetails }) {
 
   const navigate = useNavigate();
   // const history = useHistory();
-
-  const deleteHandler = () => {
-    alert("Still in progress ::: Not yet implemented delete functionality");
-  };
 
   const editHandler = () => {
     // navigate("/admin/add-product");
@@ -68,7 +57,12 @@ function CardView({ cardDetails }) {
             <Button color="success" size="sm" outline onClick={editHandler}>
               Edit
             </Button>
-            <Button color="danger" size="sm" outline onClick={deleteHandler}>
+            <Button
+              color="danger"
+              size="sm"
+              outline
+              onClick={() => deleteHandler(_id)}
+            >
               Delete
             </Button>
           </CardBody>

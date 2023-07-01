@@ -13,5 +13,16 @@ const getProducts = async () => {
   const data = await api.get(endPoints.getProducts).then((res) => res.data);
   return data;
 };
+const getDeleteProduct = async (list) => {
+  const data = await api
+    .delete(`${endPoints.deleteProduct}/${list._id}`)
+    .then((res) => res);
+  return data;
+};
 
-export { createProductService, getProducts, updateProductService };
+export {
+  createProductService,
+  getProducts,
+  updateProductService,
+  getDeleteProduct,
+};

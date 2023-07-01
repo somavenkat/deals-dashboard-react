@@ -31,7 +31,7 @@ const Products = ({ pageTitle }) => {
   };
   return (
     <div className="content">
-      <row>
+      <Row>
         <Col className="text-right">
           <Button
             className="btn-round btn btn-primary m-0 mb-3"
@@ -40,7 +40,7 @@ const Products = ({ pageTitle }) => {
             Add Product
           </Button>
         </Col>
-      </row>
+      </Row>
       <Row>
         <Col md="12">
           <ViewProduct />

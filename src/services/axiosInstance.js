@@ -16,6 +16,7 @@ const endPoints = {
   createProduct: "api/products",
   updateProduct: "api/products",
   getProducts: "api/products",
+  deleteProduct: "api/products",
 };
 
 // const getAllProducts = () => {

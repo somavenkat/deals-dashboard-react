@@ -1,7 +1,15 @@
 {
   "navigationFallback": {
-    "rewrite": "index.html",
+    "rewrite": "/index.html",
     "exclude": ["/static/media/*.{png,jpg,jpeg,gif,bmp}", "/static/css/*"]
+  },
+  "responseOverrides": {
+    "400": {
+      "rewrite": "/index.html"
+    },
+    "404": {
+      "rewrite": "/index.html"
+    }
   },
   "mimeTypes": {
     ".json": "text/json"
